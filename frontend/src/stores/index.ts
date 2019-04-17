@@ -1,9 +1,9 @@
-import { UserStore } from './UserStore'
+import { PollStore } from './PollStore'
 
 export class Stores {
-  public userStore: UserStore
+  public pollStore: PollStore
 
   constructor() {
-    this.userStore = new UserStore()
+    this.pollStore = new PollStore()
   }
 }

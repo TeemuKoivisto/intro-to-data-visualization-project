@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios'
+import { parse } from 'papaparse'
 
 const { REACT_APP_API_URL } = process.env
 export const defaultHeaders = {
@@ -24,6 +25,22 @@ const createRequest = (path: string, options: any) : Promise<any> => {
       throw err
     })
 }
+
+export const getCsv = <T>(path: string, parser: (row: any) => any) : Promise<T> =>
+  new Promise((resolve, reject) => {
+    parse(path, {
+      delimiter: ',',
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete(results) {
+        resolve(results.data.map(row => parser(row)) as unknown as T)
+      },
+      error(err: any) {
+        reject(err)
+      }
+    })
+  })
 
 export const get = <T>(path: string, headers = defaultHeaders) : Promise<T> =>
   createRequest(path, { headers, method: 'GET' })
