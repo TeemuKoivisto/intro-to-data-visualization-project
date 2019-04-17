@@ -1,4 +1,4 @@
-# Introduction to Data Visualization 2019 Spring: Project
+# [Introduction to Data Visualization 2019 Spring: Project](https://teemukoivisto.github.io/intro-to-data-visualization-project/)
 
 This is my IDV data visualization project, aimed to visualize the differences between the election poll numbers in British parliamentary elections. If I have time, I might try to use the same viz-magic for Finnish elections too.
 
