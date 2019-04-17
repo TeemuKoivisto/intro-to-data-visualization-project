@@ -18,7 +18,6 @@ export class NavBar extends React.PureComponent<IProps> {
       <NavContainer className={this.props.className}>
         <NavLinkList>
           <NavListItem><NavListLink to="/">Front page</NavListLink></NavListItem>
-          <NavListItem><NavListLink to="/users">Users page</NavListLink></NavListItem>
         </NavLinkList>
       </NavContainer>
     )

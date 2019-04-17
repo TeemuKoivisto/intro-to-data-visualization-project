@@ -1,5 +1,5 @@
 export interface IGuardianPoll {
-  date: Date
+  date: string // or Date?
   CON: number
   LAB: number
   LIBDEM: number

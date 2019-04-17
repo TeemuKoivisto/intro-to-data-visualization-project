@@ -5,7 +5,7 @@ import {
 } from './methods'
 
 const parseGuardianData = (row: any) => ({
-  date: new Date(row.date),
+  date: row.date,
   CON: parseFloat(row.CON),
   LAB: parseFloat(row.LAB),
   LIBDEM: parseFloat(row['LIB DEM']),
@@ -14,5 +14,6 @@ const parseGuardianData = (row: any) => ({
 
 export const getGuardianPolls = () =>
   getCsv<IGuardianPoll[]>(require('./guardian-polls.csv'), parseGuardianData)
+
 export const getGuardianElectionResults = () =>
   getCsv<IGuardianPoll[]>(require('./guardian-election-results.csv'), parseGuardianData)

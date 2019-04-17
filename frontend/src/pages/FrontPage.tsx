@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import styled from '../theme/styled'
 
 import { PollLineChart } from '../components/Charts'
@@ -17,7 +17,8 @@ interface IProps {
 @inject((stores: Stores) => ({
   pollStore: stores.pollStore
 }))
-export class FrontPage extends React.PureComponent<IProps> {
+@observer
+export class FrontPage extends React.Component<IProps> {
   componentDidMount() {
     this.props.pollStore!.getGuardianData()
   }
@@ -26,7 +27,7 @@ export class FrontPage extends React.PureComponent<IProps> {
     return (
       <FrontPageContainer>
         <header>
-          <h1>Data Visualization Project: Spring 2019</h1>
+          <h1><a href="https://teemukoivisto.github.io/intro-to-data-visualization-project/">Interactive Data Visualization Project: Spring 2019</a></h1>
           <p>British Poll data visualization by Teemu Koivisto</p>
           <p><a href="https://github.com/teemukoivisto/intro-to-data-visualization-project">Github repo</a></p>
         </header>

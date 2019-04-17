@@ -6,30 +6,6 @@ import styled from '../../theme/styled'
 
 import { IGuardianPoll } from '../../types/poll'
 
-const data = [
-  {
-    name: 'Date A', stars: 11700, commits: 1400, amt: 2400,
-  },
-  {
-    name: 'Date B', stars: 13100, commits: 1698, amt: 2210,
-  },
-  {
-    name: 'Date C', stars: 14200, commits: 2100, amt: 2290,
-  },
-  {
-    name: 'Date D', stars: 15400, commits: 2408, amt: 2000,
-  },
-  {
-    name: 'Date E', stars: 17000, commits: 3150, amt: 2181,
-  },
-  {
-    name: 'Date F', stars: 18800, commits: 3800, amt: 2500,
-  },
-  {
-    name: 'Date G', stars: 21000, commits: 4300, amt: 2100,
-  },
-]
-
 interface IProps {
   className?: string
   polls: IGuardianPoll[]
@@ -38,26 +14,27 @@ interface IProps {
 
 class PollLineChartClass extends React.PureComponent<IProps> {
   render() {
-    const { className } = this.props
+    const { className, polls, results } = this.props
     return (
       <LChart
         className={className}
-        width={500}
-        height={300}
-        data={data}
+        width={1200}
+        height={1000}
+        data={polls}
         margin={{
-          top: 5, right: 30, left: 20, bottom: 5,
+          top: 5, right: 10, left: 5, bottom: 5,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="date" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <ReferenceLine x="Page C" stroke="red" label="Max PV PAGE" />
-        <ReferenceLine y={9800} label="Max" stroke="red" />
-        <Line type="monotone" dataKey="commits" stroke="#8884d8" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="stars" stroke="#82ca9d" />
+        { results.map(r => <ReferenceLine key={r.date} x={r.date} isFront={true} stroke="red" label="Election" />)}
+        <Line type="monotone" dataKey="CON" stroke="#0087DC" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="LAB" stroke="#DC241f" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="LIBDEM" stroke="#FAA61A" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="OTHER" stroke="#82ca9d" activeDot={{ r: 8 }}/>
       </LChart>
     )
   }
