@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/intro-to-data-visualization-project/precache-manifest.d48813c799085e9be44f72feff001509.js"
+  "/intro-to-data-visualization-project/precache-manifest.8ae7a9a1716156b0ac8a9b1ca8420b2b.js"
 );
 
 workbox.clientsClaim();
