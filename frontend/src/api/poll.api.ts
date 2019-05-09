@@ -8,7 +8,7 @@ const parseGuardianData = (row: any) => ({
   date: row.date,
   CON: parseFloat(row.CON),
   LAB: parseFloat(row.LAB),
-  LIBDEM: parseFloat(row['LIB DEM']),
+  LIBDEM: parseFloat(row['LIBDEM']),
   OTHER: parseFloat(row.OTHER),
 })
 
