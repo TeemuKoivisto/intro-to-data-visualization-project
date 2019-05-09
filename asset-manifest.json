@@ -1,15 +1,15 @@
 {
   "main.css": "/intro-to-data-visualization-project/static/css/main.26072405.chunk.css",
-  "main.js": "/intro-to-data-visualization-project/static/js/main.96a2804c.chunk.js",
-  "main.js.map": "/intro-to-data-visualization-project/static/js/main.96a2804c.chunk.js.map",
+  "main.js": "/intro-to-data-visualization-project/static/js/main.97209a11.chunk.js",
+  "main.js.map": "/intro-to-data-visualization-project/static/js/main.97209a11.chunk.js.map",
   "runtime~main.js": "/intro-to-data-visualization-project/static/js/runtime~main.04e39f13.js",
   "runtime~main.js.map": "/intro-to-data-visualization-project/static/js/runtime~main.04e39f13.js.map",
-  "static/js/2.f5a1cc89.chunk.js": "/intro-to-data-visualization-project/static/js/2.f5a1cc89.chunk.js",
-  "static/js/2.f5a1cc89.chunk.js.map": "/intro-to-data-visualization-project/static/js/2.f5a1cc89.chunk.js.map",
+  "static/js/2.5c492407.chunk.js": "/intro-to-data-visualization-project/static/js/2.5c492407.chunk.js",
+  "static/js/2.5c492407.chunk.js.map": "/intro-to-data-visualization-project/static/js/2.5c492407.chunk.js.map",
   "index.html": "/intro-to-data-visualization-project/index.html",
-  "precache-manifest.8ae7a9a1716156b0ac8a9b1ca8420b2b.js": "/intro-to-data-visualization-project/precache-manifest.8ae7a9a1716156b0ac8a9b1ca8420b2b.js",
+  "precache-manifest.0cd22141397477dbb24881106d02cc53.js": "/intro-to-data-visualization-project/precache-manifest.0cd22141397477dbb24881106d02cc53.js",
   "service-worker.js": "/intro-to-data-visualization-project/service-worker.js",
   "static/css/main.26072405.chunk.css.map": "/intro-to-data-visualization-project/static/css/main.26072405.chunk.css.map",
-  "static/media/guardian-election-results.csv": "/intro-to-data-visualization-project/static/media/guardian-election-results.b74f7e5b.csv",
-  "static/media/guardian-polls.csv": "/intro-to-data-visualization-project/static/media/guardian-polls.d93782ba.csv"
+  "static/media/guardian-election-results.csv": "/intro-to-data-visualization-project/static/media/guardian-election-results.08c2060f.csv",
+  "static/media/guardian-polls.csv": "/intro-to-data-visualization-project/static/media/guardian-polls.6067d4d6.csv"
 }
