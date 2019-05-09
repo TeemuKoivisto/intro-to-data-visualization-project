@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {
-  LineChart as LChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ReferenceArea, LabelList
+  LineChart as LChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ReferenceArea
 } from 'recharts'
 import styled from '../../theme/styled'
 
@@ -56,9 +56,21 @@ const wonElection = (r: IGuardianPoll) => Object.keys(r).reduce((acc, cur) => {
 }, ['', 0] as [string, number])
 const getColor = (key: string) => COLORS[key]
 
+function CustomizedAxisTick(props: any) {
+  const {
+    x, y, payload,
+  } = props
+
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>
+    </g>
+  )
+}
+
 class PollLineChartClass extends React.PureComponent<IProps> {
-  render() {
-    const { className, polls, results } = this.props
+  get areaColors() {
+    const { polls, results } = this.props
     const areas = results.reduce((acc, cur, i) => {
       let x1 = cur.date, x2
       if (i === 0) {
@@ -74,6 +86,10 @@ class PollLineChartClass extends React.PureComponent<IProps> {
       acc.push({ x1, x2, y1: 0, y2: 0.8, color: getColor(wonParty[0]) })
       return acc
     }, [] as any[])
+    return areas
+  }
+  render() {
+    const { className, polls, results } = this.props
     return (
       <LChart
         className={className}
@@ -81,19 +97,17 @@ class PollLineChartClass extends React.PureComponent<IProps> {
         height={1000}
         data={polls}
         margin={{
-          top: 5, right: 10, left: 5, bottom: 5,
+          top: 5, right: 10, left: 5, bottom: 40,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date">
-        <LabelList dataKey="date" position="right" angle={45}  />
-
+        <XAxis dataKey="date" tick={<CustomizedAxisTick />}>
         </XAxis>
         <YAxis />
         <Tooltip />
-        <Legend />
+        <Legend verticalAlign="top" height={36}/>
         { results.map(r => <ReferenceLine key={r.date} x={r.date} isFront={true} stroke="red" label="Election" />)}
-        { areas.map(a => <ReferenceArea key={a.x1 + a.x2} x1={a.x1} x2={a.x2} y1={a.y1} y2={a.y2} fill={a.color} fillOpacity={0.1} />)}
+        { this.areaColors.map(a => <ReferenceArea key={a.x1 + a.x2} x1={a.x1} x2={a.x2} y1={a.y1} y2={a.y2} fill={a.color} fillOpacity={0.1} />)}
         <Line type="monotone" dataKey="CON" stroke="#0087DC" activeDot={{ r: 8 }} />
         <Line type="monotone" dataKey="LAB" stroke="#DC241f" activeDot={{ r: 8 }} />
         <Line type="monotone" dataKey="LIBDEM" stroke="#FAA61A" activeDot={{ r: 8 }} />
